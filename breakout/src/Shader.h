@@ -13,6 +13,8 @@ public:
 	Shader();
 	~Shader();
 
+	Shader& Use();
+
 	void Compile(const GLchar *vertexSource, const GLchar *fragmentSource, const GLchar *geometrySource = nullptr);
 
 	//utilities
