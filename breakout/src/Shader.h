@@ -1,6 +1,6 @@
 #pragma once
 
-#include <GL/glew.h>
+#include "Debug.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 

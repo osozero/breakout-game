@@ -1,6 +1,7 @@
 #pragma once
 
-#include <GL/glew.h>
+
+#include "Debug.h"
 #include <GLFW/glfw3.h>
 
 enum GameState

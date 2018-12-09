@@ -13,7 +13,7 @@ Shader::~Shader()
 
 Shader& Shader::Use()
 {
-	glUseProgram(this->ID);
+	GLCall(glUseProgram(this->ID));
 	return *this;
 }
 
