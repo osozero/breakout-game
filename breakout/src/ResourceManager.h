@@ -27,5 +27,7 @@ private:
 	static Shader loadShaderFromFile(const GLchar *vShaderFile, const GLchar *fShaderFile, const GLchar *gShaderFile = nullptr);
 
 	static Texture loadImageFromFile(const GLchar *file, GLboolean alpha);
+
+	static std::string read_from_file(const GLchar *file);
 };
 
