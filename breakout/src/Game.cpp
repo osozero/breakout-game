@@ -8,3 +8,19 @@ Game::Game(GLuint _width, GLuint _height)
 Game::~Game()
 {
 }
+
+void Game::Init()
+{
+}
+
+void Game::ProcessInput(GLfloat dt)
+{
+}
+
+void Game::Update(GLfloat)
+{
+}
+
+void Game::Render()
+{
+}
