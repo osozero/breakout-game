@@ -37,6 +37,8 @@ int main()
 		exit(-1);
 	}
 
+	glfwMakeContextCurrent(window);
+
 	auto glewInitResult = glewInit();
 
 	if(glewInitResult!=GLEW_OK)
