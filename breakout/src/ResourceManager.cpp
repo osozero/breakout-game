@@ -22,7 +22,7 @@ Shader ResourceManager::LoadShader(const GLchar* vShaderFile, const GLchar* fSha
 	return Shaders[name];
 }
 
-Shader ResourceManager::GetShader(std::string name)
+Shader& ResourceManager::GetShader(std::string name)
 {
 	return Shaders[name];
 }
@@ -33,7 +33,7 @@ Texture ResourceManager::LoadTexture(const GLchar* file, GLboolean alpha, std::s
 	return Textures[name];
 }
 
-Texture ResourceManager::GetTexture(std::string name)
+Texture& ResourceManager::GetTexture(std::string name)
 {
 	return Textures[name];
 }
@@ -99,15 +99,19 @@ Texture ResourceManager::loadImageFromFile(const GLchar* file, GLboolean alpha)
 		texture.InternalFormat = GL_RGBA;
 	}
 
-	int width, height;
+	int width, height,nrChannels;
 
-	 auto image = stbi_load(file, &width, &height, nullptr, texture.ImageFormat);
+	 auto image = stbi_load(file, &width, &height, &nrChannels,GL_RGBA);
 
-	if(image)
+	if(image==nullptr)
 	{
-		texture.Generate(width, height, image);
-		stbi_image_free(image);
+		std::cout << "Image could not be loaded from path: "
+			<< file << std::endl;
+		exit(-1);
 	}
+
+	texture.Generate(width, height, image);
+	stbi_image_free(image);
 
 	return texture;
 }

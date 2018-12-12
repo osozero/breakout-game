@@ -13,11 +13,11 @@ public:
 
 	static Shader LoadShader(const GLchar *vShaderFile, const GLchar *fShaderFile, const GLchar *gShaderFile, std::string name);
 
-	static Shader GetShader(std::string name);
+	static Shader& GetShader(std::string name);
 
 	static Texture LoadTexture(const GLchar *file, GLboolean alpha, std::string name);
 
-	static Texture GetTexture(std::string name);
+	static Texture& GetTexture(std::string name);
 
 	static void Clear();
 	~ResourceManager();
