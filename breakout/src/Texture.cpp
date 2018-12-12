@@ -9,6 +9,9 @@ void Texture::Generate(GLuint _width, GLuint _height, unsigned char* data)
 
 	GLCall(glTexImage2D(GL_TEXTURE_2D, 0, this->InternalFormat, this->Width, this->Height, 0, this->ImageFormat, GL_UNSIGNED_BYTE, data));
 
+
+	GLCall(glGenerateMipmap(GL_TEXTURE_2D));
+
 	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, this->WrapS));
 	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, this->WrapT));
 	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, this->FilterMin));

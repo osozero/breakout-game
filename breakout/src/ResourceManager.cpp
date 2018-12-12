@@ -92,21 +92,24 @@ Texture ResourceManager::loadImageFromFile(const GLchar* file, GLboolean alpha)
 {
 	Texture texture;
 
+	int reqChannel = 3;
+
 	if(alpha)
 	{
 		stbi_set_flip_vertically_on_load(true);
 		texture.ImageFormat = GL_RGBA;
 		texture.InternalFormat = GL_RGBA;
+
+		reqChannel = 4;
 	}
 
 	int width, height,nrChannels;
 
-	 auto image = stbi_load(file, &width, &height, &nrChannels,GL_RGBA);
+	 auto image = stbi_load(file, &width, &height, &nrChannels,reqChannel);
 
 	if(image==nullptr)
 	{
-		std::cout << "Image could not be loaded from path: "
-			<< file << std::endl;
+		std::cout << stbi_failure_reason() << std::endl;
 		exit(-1);
 	}
 
