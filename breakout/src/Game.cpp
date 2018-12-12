@@ -9,6 +9,8 @@ Game::Game(GLuint _width, GLuint _height)
 
 Game::~Game()
 {
+	delete this->Renderer;
+	this->Renderer = nullptr;
 }
 
 void Game::Init()
