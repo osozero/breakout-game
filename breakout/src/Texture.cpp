@@ -26,7 +26,7 @@ void Texture::Bind() const
 	GLCall(glBindTexture(GL_TEXTURE_2D, this->ID));
 }
 
-Texture::Texture() :Width(0), Height(0), InternalFormat(GL_RGB), ImageFormat(GL_RGB), WrapS(GL_REPEAT), WrapT(GL_REPEAT), FilterMin(GL_REPEAT), FilterMax(GL_REPEAT)
+Texture::Texture() :Width(0), Height(0), InternalFormat(GL_RGB), ImageFormat(GL_RGB), WrapS(GL_REPEAT), WrapT(GL_REPEAT), FilterMin(GL_LINEAR), FilterMax(GL_LINEAR)
 {
 	GLCall(glGenTextures(1, &this->ID));
 }
